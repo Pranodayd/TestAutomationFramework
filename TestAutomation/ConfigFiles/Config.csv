@@ -1,0 +1,5 @@
+AppiumServerLoglevel,debug
+NodejsPath,C:\Program Files\nodejs
+AppiumInstallationDir,C:\Users\DELL\AppData\Roaming\npm\node_modules\appium\build\lib\main.js
+AndroidEnvVars,C:\Framework\Snehal\AutomationFramework\TestAutomation\ConfigFiles\Android.csv
+ObjectRepositoriesFolderPath,C:\Framework\Snehal\AutomationFramework\TestAutomation\Repositories

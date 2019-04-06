@@ -1,0 +1,32 @@
+package com.UIAutomation.TestAutomation.TestTypes;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
+public abstract class MobileNativeTest extends NativeTest
+{
+	
+	
+	public void SwipeTillElementFound(MobileElement E)
+	{
+		
+		
+	}
+	public void ClickElement(MobileElement E) 
+	{
+		E.click();
+
+	}
+	public void EnterText(MobileElement E,String Str)
+	{
+		
+		E.sendKeys(Str);
+		
+	}
+	public void GetText(MobileElement E) 
+	{
+		E.
+
+	}
+
+}

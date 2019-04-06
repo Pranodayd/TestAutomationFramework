@@ -1,0 +1,90 @@
+package com.UIAutomation.TestAutomation.TestTypes;
+
+import org.openqa.selenium.remote.RemoteWebElement;
+
+import com.UIAutomation.TestAutomation.TestTypes.NativeTest.Directions;
+import com.UIAutomation.TestAutomation.Utilities.Utilities;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
+public abstract class NativeTest implements AutomationTest 
+{
+
+	public enum Coordinates
+	{
+		
+		X,
+		Y;
+		
+		
+	}
+	
+	public enum Dimensions
+	{
+		
+		WIDTH,
+		HEIGHT;
+		
+		
+	}
+	public enum Directions
+	{
+		
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
+		
+	}
+	public static AppiumDriver Driver;
+	String Port,UDID;
+	
+	public void StopTest(String Port,String UDID)
+	{
+		
+		
+		Driver.close();
+	}
+
+	public void StartAppiumServer()
+	{
+		
+		Utilities.StartAppiumServerForAndroid(Port,UDID);
+	}
+	public abstract void ClickElement(MobileElement E); 
+	public abstract void EnterText(MobileElement E,String Str);
+	public abstract void SwipeElement(MobileElement E,Directions direction);
+	public String GetWebElementText(MobileElement Element);
+	}	public int GetCoordinates(MobileElement E,Coordinates Cord)
+	{
+		int Coordinates=0;
+		switch(Cord)
+		{
+			case X:
+				Coordinates=E.getLocation().x;	
+				break;
+			case Y:	
+				Coordinates=E.getLocation().y;	
+				break;
+		}
+		return Coordinates; 
+	}
+	
+	public int GetDimensions(MobileElement E,Dimensions Dimension)
+	{
+		int dimension=0;
+		switch(Dimension)
+		{
+			case HEIGHT:
+				dimension=E.getSize().height;	
+				break;
+			case WIDTH:	
+				dimension=E.getSize().width;	
+				break;
+				
+		}
+		return dimension; 
+	}
+	
+}

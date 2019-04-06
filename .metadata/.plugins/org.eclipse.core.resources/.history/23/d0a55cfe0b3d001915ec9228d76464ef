@@ -1,0 +1,26 @@
+package com.BrainiZen.TestAutomation.Utilities;
+
+import com.BrainiZen.TestAutomation.Pages.AndroidPage;
+import com.BrainiZen.TestAutomation.Pages.IOSPage;
+import com.BrainiZen.TestAutomation.Pages.MobileNativePage;
+
+public class Factory 
+{
+
+	public static MobileNativePage FactoryMethod(String Platform)
+	{
+		
+		switch(Platform)
+		{
+		case "IOS":
+			//return new IOSPage();
+		
+		case "Android":
+			///return new AndroidPage(Browser,ClassName);
+			return new AndroidPage();
+		}
+		return null;
+		
+		
+	}
+}

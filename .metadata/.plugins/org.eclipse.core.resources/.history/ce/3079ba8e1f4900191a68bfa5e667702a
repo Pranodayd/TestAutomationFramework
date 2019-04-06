@@ -1,0 +1,28 @@
+package com.UIAutomation.TestAutomation.TestTypes;
+
+import com.UIAutomation.TestAutomation.Utilities.Utilities;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
+public abstract class NativeTest implements AutomationTest 
+{
+
+	public AppiumDriver Driver;
+	String Port,UDID;
+	
+	public void StopTest(String Port,String UDID)
+	{
+		
+		
+		Driver.close();
+	}
+
+	public void StartAppiumServer()
+	{
+		
+		Utilities.StartAppiumServerForAndroid(Port,UDID);
+	}
+	public abstract void ClickElement(MobileElement E); 
+	public abstract void EnterText(MobileElement E,String Str); 
+}

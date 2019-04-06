@@ -1,0 +1,5 @@
+Discover,BY_XPATH,//*[@text='Next']
+Connect,BY_XPATH,//*[@text='Next']
+Build,BY_XPATH,//*[@text='Next']
+MobileNumber,BY_XPATH,//*[@text='Mobile Number']
+SignInBtn,BY_XPATH,//*[@text='Next']
