@@ -6,4 +6,6 @@ This UIAutomation framework uses Selenium and Appium in backend.It serves as a w
 can create scripts on following types of applications which Selenium or other Selenium-based supporting tools support UIAutomation on.
 
 1.Web Applications running on Desktop OS or Mobile Operating Systems like Android,IOS and Windows
+
+
 2.Native application running on Windows Desktop,Android,IOS.
