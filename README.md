@@ -8,4 +8,4 @@ can create scripts on following types of applications which Selenium or other Se
 1.Web Applications running on Desktop OS or Mobile Operating Systems like Android,IOS and Windows
 
 
-2.Native application running on Windows Desktop,Android,IOS.
+2.Native applications running on Windows Desktop,Android,IOS.
