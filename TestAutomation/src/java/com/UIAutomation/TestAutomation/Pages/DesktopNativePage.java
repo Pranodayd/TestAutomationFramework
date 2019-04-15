@@ -1,6 +1,5 @@
 package com.UIAutomation.TestAutomation.Pages;
 
-public class DesktopNativePage extends NativePage
-{
+public class DesktopNativePage extends NativePage {
 
 }

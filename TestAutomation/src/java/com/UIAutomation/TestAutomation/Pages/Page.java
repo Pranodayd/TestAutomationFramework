@@ -6,11 +6,10 @@ import org.openqa.selenium.WebElement;
 
 import com.UIAutomation.TestAutomation.TestTypes.AutomationTest;
 
-public abstract class Page 
-{
+public abstract class Page {
 
-	
 	public AutomationTest T;
-	HashMap<String,WebElement>ObjectRepo=new HashMap<String,WebElement>();
+	HashMap<String, WebElement> ObjectRepo = new HashMap<String, WebElement>();
+
 	public abstract void CreateObjectRepository(String RepositoryFileName);
 }

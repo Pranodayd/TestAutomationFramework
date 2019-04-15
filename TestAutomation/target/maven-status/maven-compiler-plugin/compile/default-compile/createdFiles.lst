@@ -1,2 +1,3 @@
-com\UIAutomation\TestAutomation\TestTypes\NativeTest$1.class
-com\UIAutomation\TestAutomation\TestTypes\MobileNativeTest$1.class
+com\UIAutomation\TestAutomation\TestTypes\AutomationTest$Dimensions.class
+com\UIAutomation\TestAutomation\TestTypes\AutomationTest$1.class
+com\UIAutomation\TestAutomation\TestTypes\AutomationTest$Coordinates.class

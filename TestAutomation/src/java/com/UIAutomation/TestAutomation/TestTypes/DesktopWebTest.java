@@ -1,13 +1,9 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
-public abstract class DesktopWebTest extends WebTest
-{
+public abstract class DesktopWebTest extends WebTest {
 
-	public void SetupTest()
-	{
-		
-		
+	public void SetupTest() {
+
 	}
-
 
 }

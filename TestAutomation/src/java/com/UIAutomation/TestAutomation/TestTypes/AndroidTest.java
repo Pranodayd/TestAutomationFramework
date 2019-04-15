@@ -8,14 +8,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.List;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import com.UIAutomation.TestAutomation.Pages.Page;
 import com.UIAutomation.TestAutomation.Utilities.Utilities;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class AndroidTest extends MobileNativeTest {
@@ -35,7 +32,7 @@ public class AndroidTest extends MobileNativeTest {
 
 			line = br.readLine();
 			while (line != null) {
-				
+
 				parts = line.split(",");
 				VariableName = parts[0]; // 004
 				try {
@@ -54,7 +51,7 @@ public class AndroidTest extends MobileNativeTest {
 					} catch (IOException IOE) {
 						System.out.println("Thrown IOException while reading file :" + IOE.getMessage());
 					}
-				
+
 				}
 			}
 
@@ -73,23 +70,25 @@ public class AndroidTest extends MobileNativeTest {
 		DesiredCapabilities Capability = new DesiredCapabilities();
 		Capability.setCapability("platformName", "Android");
 		Capability.setCapability("deviceName", "AndroidDevice");
-		//Get path of Nebory App path
-		Capability.setCapability("app", Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
+		// Get path of Nebory App path
+		Capability.setCapability("app",
+				Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
 		Capability.setCapability("appPackage", Android_dict.get("ApplicationPackage"));
 		Capability.setCapability("appActivity", Android_dict.get("ApplicationLaunchActivity"));
-		//FullReset means uninstall app and again install app
+		// FullReset means uninstall app and again install app
 		Capability.setCapability("fullReset", true);
-		//noReset means clear app data and open app
+		// noReset means clear app data and open app
 		Capability.setCapability("noReset", false);
 		Capability.setCapability("rotatable", true);
-		//Used because of new appium
+		// Used because of new appium
 		Capability.setCapability("automationName", "uiautomator2");
 
 		try {
-			//Start session of app
-			Driver = new AndroidDriver(new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
-			//OTP is not autofilling so need to just clear data
-			//Driver.resetApp();
+			// Start session of app
+			Driver = new AndroidDriver(
+					new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
+			// OTP is not autofilling so need to just clear data
+			// Driver.resetApp();
 
 		} catch (MalformedURLException Exc) {
 			System.out.println("Problem in URL");
@@ -98,18 +97,13 @@ public class AndroidTest extends MobileNativeTest {
 
 	}
 
+	public void LaunchApp() {
 
-	
-	
-	
-		
-	public void LaunchApp() 
-	{
-		
 		DesiredCapabilities Capability = new DesiredCapabilities();
 		Capability.setCapability("platformName", "Android");
 		Capability.setCapability("deviceName", "AndroidDevice");
-		Capability.setCapability("app", Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
+		Capability.setCapability("app",
+				Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
 		Capability.setCapability("appPackage", Android_dict.get("ApplicationPackage"));
 		Capability.setCapability("appActivity", Android_dict.get("ApplicationLaunchActivity"));
 		Capability.setCapability("fullReset", false);
@@ -117,9 +111,9 @@ public class AndroidTest extends MobileNativeTest {
 		Capability.setCapability("rotatable", true);
 		Capability.setCapability("automationName", "uiautomator2");
 		try {
-			//Start session of app
-			Driver = new AndroidDriver(new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
-			
+			// Start session of app
+			Driver = new AndroidDriver(
+					new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
 
 		} catch (MalformedURLException Exc) {
 			System.out.println("Problem in URL");
@@ -128,7 +122,4 @@ public class AndroidTest extends MobileNativeTest {
 
 	}
 
-	
-	
-	
 }

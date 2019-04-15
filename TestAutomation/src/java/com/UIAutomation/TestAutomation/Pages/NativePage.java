@@ -7,9 +7,7 @@ import java.io.IOException;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.List;
 
-import org.apache.tools.ant.taskdefs.Get;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -17,28 +15,28 @@ import org.openqa.selenium.WebElement;
 import com.UIAutomation.TestAutomation.TestTypes.NativeTest;
 import com.UIAutomation.TestAutomation.Utilities.Utilities;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public abstract class NativePage extends Page {
 
 	public NativeTest T;
 	// Create object Repositories of all locators
-	public HashMap<String, MobileElement> ObjectRepo = new HashMap<String, MobileElement>();
-	public HashMap <String,String>Stratergy_Dict=new HashMap<String,String>();	
-	public HashMap <String,String>Locator_Dict=new HashMap<String,String>();
+	public HashMap<String, WebElement> ObjectRepo = new HashMap<String, WebElement>();
+	public HashMap<String, String> Stratergy_Dict = new HashMap<String, String>();
+	public HashMap<String, String> Locator_Dict = new HashMap<String, String>();
+
 	public void CreateObjectRepository(String RepositoryFileName) {
 
-		MobileElement WebElemnt;
+		WebElement WebElement;
 		String csvFile = "";
 		BufferedReader br;
 
 		try {
-			//Read csv file from path given in csv file
-			br = new BufferedReader(new FileReader(Utilities.dict.get("ObjectRepositoriesFolderPath").toString() + "\\"+ RepositoryFileName + ".csv"));
+			// Read csv file from path given in csv file
+			br = new BufferedReader(new FileReader(Utilities.dict.get("ObjectRepositoriesFolderPath").toString() + "\\"
+					+ RepositoryFileName + ".csv"));
 			String VariableName;
-			MobileElement VariableValue;
+			WebElement VariableValue;
 			String Identification_Stratergy = null;
 			String Locator = null;
 			String[] parts = null;
@@ -55,7 +53,7 @@ public abstract class NativePage extends Page {
 						Identification_Stratergy = parts[1];
 						System.out.println(parts[1]);
 
-						 Locator = parts[2];
+						Locator = parts[2];
 						if (parts.length > 3) {
 							for (int len = 3; len < parts.length; len++) {
 
@@ -63,23 +61,25 @@ public abstract class NativePage extends Page {
 							}
 
 						}
-						
-						WebElemnt = (MobileElement) ReturnFoundElement(Identification_Stratergy, Locator);
-						ObjectRepo.put(VariableName, WebElemnt);
+
+						WebElement = (WebElement) ReturnFoundElement(Identification_Stratergy, Locator);
+						ObjectRepo.put(VariableName, WebElement);
 						line = br.readLine();
-						System.out.println("value of " + VariableName + " is " + ObjectRepo.get(VariableName).toString());
+						System.out
+								.println("value of " + VariableName + " is " + ObjectRepo.get(VariableName).toString());
 					}
 
 					catch (NoSuchElementException Except) {
-							System.out.println("Element presence may not be guaranteed");
-							Stratergy_Dict.put(VariableName, Identification_Stratergy);
-							Locator_Dict.put(VariableName, Locator);
-							line=br.readLine();
+						System.out.println("Element presence may not be guaranteed");
+						Stratergy_Dict.put(VariableName, Identification_Stratergy);
+						Locator_Dict.put(VariableName, Locator);
+						line = br.readLine();
 					} catch (ArrayIndexOutOfBoundsException ArrExc) {
 						VariableValue = null;
 						VariableName = parts[0];
 						ObjectRepo.put(VariableName, VariableValue);
-						System.out.println("value of " + VariableName + " is " + ObjectRepo.get(VariableName).toString());
+						System.out
+								.println("value of " + VariableName + " is " + ObjectRepo.get(VariableName).toString());
 						try {
 							line = br.readLine();
 						} catch (IOException IOE) {
@@ -112,7 +112,7 @@ public abstract class NativePage extends Page {
 			String[] SplitedLocator = Locator.split("=");
 			String UiAutomatorLocator = "new UiSelector()." + SplitedLocator[0] + "(\"" + SplitedLocator[1] + "\");";
 			return (((AndroidDriver) T.Driver).findElementByAndroidUIAutomator(UiAutomatorLocator));
-			
+
 		case "BY_CLASSNAME":
 			return (T.Driver.findElementByClassName(Locator));
 
@@ -125,6 +125,7 @@ public abstract class NativePage extends Page {
 
 		return null;
 	}
+
 	public static Dictionary<String, String> Text_Repo = new Hashtable<String, String>();
 
 	static {

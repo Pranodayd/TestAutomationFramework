@@ -11,16 +11,12 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Dictionary;
 import java.util.Hashtable;
-import java.util.List;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 
 import com.UIAutomation.TestAutomation.TestTypes.AndroidTest;
-
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
 
 public class Utilities {
 	// Read config file, give project file path in environment variables,read csv
@@ -41,8 +37,9 @@ public class Utilities {
 		String csvFile = "";
 		BufferedReader br;
 		try {
-			//Give path of Config csv file in this file reader
-			br = new BufferedReader(new FileReader("C:\\Brainizen\\brainizen-ui-automation\\AutomationAPI\\CSV\\Config.csv"));
+			// Give path of Config csv file in this file reader
+			br = new BufferedReader(
+					new FileReader("C:\\Brainizen\\brainizen-ui-automation\\AutomationAPI\\CSV\\Config.csv"));
 			String VariableName;
 			String VariableValue;
 			String[] parts = null;
@@ -157,5 +154,5 @@ public class Utilities {
 		}
 
 	}
-	
+
 }
