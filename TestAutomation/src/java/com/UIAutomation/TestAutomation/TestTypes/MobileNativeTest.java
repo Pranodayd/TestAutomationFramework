@@ -1,34 +1,59 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.UIAutomation.TestAutomation.Pages.NativePage;
+import com.UIAutomation.TestAutomation.Utilities.Utilities;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
 public abstract class MobileNativeTest extends NativeTest
 {
 	
-	
-	public void SwipeTillElementFound(MobileElement E)
+	public enum Directions
 	{
 		
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT
 		
 	}
+	public abstract void LaunchApp();
+	
+	/*
 	public void ClickElement(MobileElement E) 
 	{
 		E.click();
 
 	}
-	public void EnterText(MobileElement E,String Str)
+	public void EnterText(MobileElement E,String value)
 	{
 		
-		E.sendKeys(Str);
+		E.sendKeys(value);
 		
 	}
+	public void ClearElement(MobileElement Element)
+	{
+		Element.clear();
+	}
+	*/
 	
 	public void SwipeElement(MobileElement Element,Directions direction) 
 	{		
@@ -55,7 +80,7 @@ public abstract class MobileNativeTest extends NativeTest
 	
 	private void SwipeUP(MobileElement Element)
 	{
-		TouchAction Act=new TouchAction(Driver);
+		TouchAction Act=new TouchAction((AppiumDriver)Driver);
 		int Width=GetDimensions(Element, Dimensions.WIDTH);
 		int MidWidth=Width/2;
 		
@@ -76,7 +101,7 @@ public abstract class MobileNativeTest extends NativeTest
 	private void SwipeDown(MobileElement Element)
 	{
 		
-		TouchAction Act=new TouchAction(Driver);
+		TouchAction Act=new TouchAction((AppiumDriver)Driver);
 		int Width=GetDimensions(Element, Dimensions.WIDTH);
 		int MidWidth=Width/2;
 		
@@ -95,7 +120,7 @@ public abstract class MobileNativeTest extends NativeTest
 	private void SwipeLeft(MobileElement Element)
 	{
 		
-		TouchAction Act=new TouchAction(Driver);
+		TouchAction Act=new TouchAction((AppiumDriver)Driver);
 		int Width=GetDimensions(Element, Dimensions.WIDTH);
 		int MidWidth=Width/2;
 		
@@ -114,7 +139,7 @@ public abstract class MobileNativeTest extends NativeTest
 	private void SwipeRight(MobileElement Element)
 	{
 		
-		TouchAction Act=new TouchAction(Driver);
+		TouchAction Act=new TouchAction((AppiumDriver)Driver);
 		int Width=GetDimensions(Element, Dimensions.WIDTH);
 		int MidWidth=Width/2;
 		
@@ -130,49 +155,16 @@ public abstract class MobileNativeTest extends NativeTest
 		
 		Act.press(PointOption.point(0,StartPointY)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))).moveTo(PointOption.point(StartPointX,StartPointY)).release().perform();
 	}
-	public String GetWebElementText(MobileElement Element) {
 		
-		return Element.getText();
-	}
-
 	
-
-	public List<MobileElement> GetListofElements(AppiumDriver Driver,String LocatorStratergy,String Locator)
+	public void CloseKeyboard() 
 	{
-		List<MobileElement> ElementTobeSearched=null;
 		
+			
+			Driver.navigate().back();
 		
-			do
-			{	
-				switch (LocatorStratergy)
-				{
-					case "BY_CLASS_NAME":
-					ElementTobeSearched=Driver.findElementsByClassName(Locator);
-					break;
-					case "BY_ID":
-					ElementTobeSearched=Driver.findElementsById(Locator);
-					break;
-					case "BY_XPATH":
-					ElementTobeSearched=Driver.findElementsByXPath(Locator);
-					break;
-					case "BY_NAME":
-					ElementTobeSearched=Driver.findElementsByName(Locator);
-					break;
-	
-				}	
-				try 
-				{
-					Thread.sleep(2000);
-				} catch (InterruptedException e) 
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-			while(ElementTobeSearched.size()==0);
-			return ElementTobeSearched;
 		
 	}
-	
 
-}
+
+	}

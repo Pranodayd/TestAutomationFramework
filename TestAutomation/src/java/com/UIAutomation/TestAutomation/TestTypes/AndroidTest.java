@@ -12,6 +12,7 @@ import java.util.List;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import com.UIAutomation.TestAutomation.Pages.Page;
 import com.UIAutomation.TestAutomation.Utilities.Utilities;
 
 import io.appium.java_client.MobileElement;
@@ -34,7 +35,7 @@ public class AndroidTest extends MobileNativeTest {
 
 			line = br.readLine();
 			while (line != null) {
-				// System.out.println(line);
+				
 				parts = line.split(",");
 				VariableName = parts[0]; // 004
 				try {
@@ -53,7 +54,7 @@ public class AndroidTest extends MobileNativeTest {
 					} catch (IOException IOE) {
 						System.out.println("Thrown IOException while reading file :" + IOE.getMessage());
 					}
-					// System.out.println("Value is blank");
+				
 				}
 			}
 
@@ -72,25 +73,23 @@ public class AndroidTest extends MobileNativeTest {
 		DesiredCapabilities Capability = new DesiredCapabilities();
 		Capability.setCapability("platformName", "Android");
 		Capability.setCapability("deviceName", "AndroidDevice");
-		Capability.setCapability("app",
-				Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
+		//Get path of Nebory App path
+		Capability.setCapability("app", Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
 		Capability.setCapability("appPackage", Android_dict.get("ApplicationPackage"));
 		Capability.setCapability("appActivity", Android_dict.get("ApplicationLaunchActivity"));
+		//FullReset means uninstall app and again install app
 		Capability.setCapability("fullReset", true);
+		//noReset means clear app data and open app
 		Capability.setCapability("noReset", false);
 		Capability.setCapability("rotatable", true);
+		//Used because of new appium
 		Capability.setCapability("automationName", "uiautomator2");
-		/*
-		 * Capability.setCapability("useKeystore",true);
-		 * Capability.setCapability("keystorePath",
-		 * "C:\\Framework\\Snehal\\AutomationFramework\\TestAutomation\\Repositories\\Nebory-keystore\\nebory.keystore"
-		 * ); Capability.setCapability("keyAlias","nebory");
-		 * Capability.setCapability("keystorePassword","yinyang12");
-		 */
 
 		try {
-			Driver = new AndroidDriver(
-					new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
+			//Start session of app
+			Driver = new AndroidDriver(new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
+			//OTP is not autofilling so need to just clear data
+			//Driver.resetApp();
 
 		} catch (MalformedURLException Exc) {
 			System.out.println("Problem in URL");
@@ -99,15 +98,37 @@ public class AndroidTest extends MobileNativeTest {
 
 	}
 
-	@Override
-	public void StopTest() {
-		// TODO Auto-generated method stub
 
-	}
-	public  void ClickonElementinList(String Locator_Stratergy,String Locator)
+	
+	
+	
+		
+	public void LaunchApp() 
 	{
-		List<MobileElement> ElementToBeClicked=GetListofElements(Driver, Locator_Stratergy, Locator);
-		Utilities.ClickElementinList(ElementToBeClicked);
+		
+		DesiredCapabilities Capability = new DesiredCapabilities();
+		Capability.setCapability("platformName", "Android");
+		Capability.setCapability("deviceName", "AndroidDevice");
+		Capability.setCapability("app", Android_dict.get("AndroidApplicationDirectoryPath") + "\\" + Android_dict.get("AndroidAPKFileName"));
+		Capability.setCapability("appPackage", Android_dict.get("ApplicationPackage"));
+		Capability.setCapability("appActivity", Android_dict.get("ApplicationLaunchActivity"));
+		Capability.setCapability("fullReset", false);
+		Capability.setCapability("noReset", true);
+		Capability.setCapability("rotatable", true);
+		Capability.setCapability("automationName", "uiautomator2");
+		try {
+			//Start session of app
+			Driver = new AndroidDriver(new URL("http://" + Android_dict.get("AndroidAppiumServer") + ":" + Port + "/wd/hub"), Capability);
+			
+
+		} catch (MalformedURLException Exc) {
+			System.out.println("Problem in URL");
+
+		}
+
 	}
 
+	
+	
+	
 }
