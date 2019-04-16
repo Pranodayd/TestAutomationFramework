@@ -19,7 +19,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public abstract class NativePage extends Page {
 
-	public NativeTest T;
+	
 	// Create object Repositories of all locators
 	public HashMap<String, WebElement> ObjectRepo = new HashMap<String, WebElement>();
 	public HashMap<String, String> Stratergy_Dict = new HashMap<String, String>();

@@ -1,11 +1,12 @@
 package com.UIAutomation.TestAutomation.Utilities;
 
 import com.UIAutomation.TestAutomation.Pages.AndroidPage;
-import com.UIAutomation.TestAutomation.Pages.NativePage;
+import com.UIAutomation.TestAutomation.Pages.Page;
+import com.UIAutomation.TestAutomation.Pages.WebPage;
 
 public class Factory {
 
-	public static NativePage FactoryMethod(String Platform) {
+	public static Page FactoryMethod(String Platform, String Browser) {
 
 		switch (Platform) {
 		case "IOS":
@@ -14,6 +15,9 @@ public class Factory {
 		case "Android":
 			/// return new AndroidPage(Browser,ClassName);
 			return new AndroidPage();
+
+		case "Desktop":
+			return new WebPage(Browser);
 		}
 		return null;
 

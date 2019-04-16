@@ -17,6 +17,7 @@ import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 
 import com.UIAutomation.TestAutomation.TestTypes.AndroidTest;
+import com.UIAutomation.TestAutomation.TestTypes.WebTest;
 
 public class Utilities {
 	// Read config file, give project file path in environment variables,read csv
@@ -152,6 +153,52 @@ public class Utilities {
 
 			System.out.println("Problem in stopping Appium Server");
 		}
+
+	}
+
+	public static void StartSeleniumServer()
+
+	{
+		try {
+			StopSeleniumServer();
+		} catch (Exception e) {
+			System.out.print("Problem in stopping Appium Server");
+		}
+
+		System.out.println("Starting Selenium server");
+		CommandLine command = new CommandLine("cmd");
+		command.addArgument("/c");
+		command.addArgument("java -jar " + WebTest.Web_dict.get("SeleniumInstallationDir").toString() + "\\"+ WebTest.Web_dict.get("SeleniumStandaloneserverFileName").toString());
+		command.addArgument("-host");
+		command.addArgument(WebTest.Web_dict.get("SeleniumServerMachine").toString());
+		command.addArgument("-port");
+		command.addArgument(WebTest.Web_dict.get("SeleniumServerPort").toString());
+		command.addArgument("-Dwebdriver.chrome.driver=");
+		command.addArgument(WebTest.Web_dict.get("ChromeDriverPath").toString());
+		command.addArgument("--command-timeout");
+		command.addArgument("120000");
+
+		DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
+		DefaultExecutor executor = new DefaultExecutor();
+		executor.setExitValue(1);
+		try {
+			Thread.sleep(20000);
+			executor.execute(command, resultHandler);
+			Thread.sleep(20000);
+			///// Utilities.WaitForProcessStart("node.exe");
+		} catch (IOException Exc) {
+			Exc.printStackTrace();
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println("Started Selenium server");
+	}
+
+	private static void StopSeleniumServer() {
+		// TODO Auto-generated method stub
 
 	}
 

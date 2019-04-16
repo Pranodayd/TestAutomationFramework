@@ -1,0 +1,6 @@
+SeleniumInstallationDir,C:\Framework\Snehal\selenium-java-2.53.1
+SeleniumStandaloneserverFileName,selenium-server-standalone-2.53.0.jar
+SeleniumServerMachine,127.0.0.1
+SeleniumServerPort,4726
+ChromeDriverPath,C:\Framework\Snehal\Drivers\chromedriver_win32\Chromedriver.exe
+ApplicationURL,https://brainizen-nebory-admin.herokuapp.com/deleteUser
