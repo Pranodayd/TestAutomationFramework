@@ -122,4 +122,10 @@ public class AndroidTest extends MobileNativeTest {
 
 	}
 
+	@Override
+	public void SetupTest() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

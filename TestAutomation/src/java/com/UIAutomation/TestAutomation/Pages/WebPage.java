@@ -15,16 +15,17 @@ import com.UIAutomation.TestAutomation.Utilities.Utilities;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public final class WebPage extends Page{
+public class WebPage extends Page{
 
-	public WebPage(String BrowserName) {
-		T= new WebTest(BrowserName){};
+	
+	public WebPage() {
+		T= new WebTest();
 	}
 
-	public HashMap<String, WebElement> WebObjectRepo = new HashMap<String, WebElement>();
+	public HashMap<String, WebElement> Web_ObjectRepo = new HashMap<String, WebElement>();
 	public HashMap<String, String> Stratergy_Dict = new HashMap<String, String>();
 	public HashMap<String, String> Locator_Dict = new HashMap<String, String>();
-	@Override
+
 	public void CreateObjectRepository(String RepositoryFileName) {
 
 		WebElement WebElement;
@@ -33,7 +34,8 @@ public final class WebPage extends Page{
 
 		try {
 			// Read csv file from path given in csv file
-			br = new BufferedReader(new FileReader(Utilities.dict.get("WebObjectRepositoriesFolderPath").toString() + "\\"+ RepositoryFileName + ".csv"));
+			br = new BufferedReader(new FileReader(Utilities.dict.get("Web_ObjectRepositoriesFolderPath").toString() + "\\"
+					+ RepositoryFileName + ".csv"));
 			String VariableName;
 			WebElement VariableValue;
 			String Identification_Stratergy = null;
@@ -62,10 +64,10 @@ public final class WebPage extends Page{
 						}
 
 						WebElement = (WebElement) ReturnFoundElement(Identification_Stratergy, Locator);
-						WebObjectRepo.put(VariableName, WebElement);
+						Web_ObjectRepo.put(VariableName, WebElement);
 						line = br.readLine();
 						System.out
-								.println("value of " + VariableName + " is " + WebObjectRepo.get(VariableName).toString());
+								.println("value of " + VariableName + " is " + Web_ObjectRepo.get(VariableName).toString());
 					}
 
 					catch (NoSuchElementException Except) {
@@ -76,9 +78,9 @@ public final class WebPage extends Page{
 					} catch (ArrayIndexOutOfBoundsException ArrExc) {
 						VariableValue = null;
 						VariableName = parts[0];
-						WebObjectRepo.put(VariableName, VariableValue);
+						Web_ObjectRepo.put(VariableName, VariableValue);
 						System.out
-								.println("value of " + VariableName + " is " + WebObjectRepo.get(VariableName).toString());
+								.println("value of " + VariableName + " is " + Web_ObjectRepo.get(VariableName).toString());
 						try {
 							line = br.readLine();
 						} catch (IOException IOE) {
@@ -97,6 +99,7 @@ public final class WebPage extends Page{
 			System.out.println("Repostiories File not found");
 		}
 	}// CreateObjectRepository Method close
+
 	public WebElement ReturnFoundElement(String Stratergy, String Locator) {
 
 		switch (Stratergy) {
@@ -106,7 +109,6 @@ public final class WebPage extends Page{
 
 		case "BY_XPATH":
 			return (T.Driver.findElement(By.xpath(Locator)));
-		
 		case "BY_CLASSNAME":
 			return (T.Driver.findElementByClassName(Locator));
 

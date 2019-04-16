@@ -6,7 +6,7 @@ import com.UIAutomation.TestAutomation.Pages.WebPage;
 
 public class Factory {
 
-	public static Page FactoryMethod(String Platform, String Browser) {
+	public static Page FactoryMethod(String Platform) {
 
 		switch (Platform) {
 		case "IOS":
@@ -17,7 +17,7 @@ public class Factory {
 			return new AndroidPage();
 
 		case "Desktop":
-			return new WebPage(Browser);
+			return new WebPage();
 		}
 		return null;
 

@@ -1,9 +1,9 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
-public abstract class MobileWebTest extends WebTest {
+public abstract class MobileWebTest {
 
 	public MobileWebTest(String BrowserName) {
-		super(BrowserName);
+		
 		// TODO Auto-generated constructor stub
 	}
 

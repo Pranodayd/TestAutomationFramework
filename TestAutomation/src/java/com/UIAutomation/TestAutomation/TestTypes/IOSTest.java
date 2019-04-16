@@ -12,4 +12,10 @@ public class IOSTest extends MobileNativeTest {
 
 	}
 
+	@Override
+	public void SetupTest() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

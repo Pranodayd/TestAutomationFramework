@@ -40,7 +40,7 @@ public class Utilities {
 		try {
 			// Give path of Config csv file in this file reader
 			br = new BufferedReader(
-					new FileReader("C:\\Brainizen\\brainizen-ui-automation\\AutomationAPI\\CSV\\Config.csv"));
+					new FileReader("C:\\Framework\\Snehal\\AutomationFramework\\TestAutomation\\ConfigFiles\\Config.csv"));
 			String VariableName;
 			String VariableValue;
 			String[] parts = null;

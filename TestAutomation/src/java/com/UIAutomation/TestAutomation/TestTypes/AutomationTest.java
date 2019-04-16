@@ -28,7 +28,7 @@ public abstract class AutomationTest {
 	public static RemoteWebDriver Driver;
 
 	public abstract void SetupTest(String Port, String UDID);
-
+	public abstract void SetupTest();
 	public void ClickElement(WebElement E) {
 		E.click();
 
