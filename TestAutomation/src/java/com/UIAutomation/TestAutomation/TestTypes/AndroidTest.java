@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.UIAutomation.TestAutomation.Utilities.Utilities;
@@ -123,9 +125,21 @@ public class AndroidTest extends MobileNativeTest {
 	}
 
 	@Override
-	public void SetupTest() {
-		// TODO Auto-generated method stub
+	public void SelectItemFromMenu(String MenuIdentificationSTratergy,String  MenuIdentificationLocator, String MenuItem) 
+	{
+	
+			WebElement Menu=ReturnFoundElement(MenuIdentificationSTratergy, MenuIdentificationLocator);
+			WebElement MenuItemElement=Menu.findElement(By.xpath("./descendant::*[@text='"+MenuItem+"']"));
+			ClickElement(MenuItemElement);
+			
+	}
+
+	
+	public void InvokePulldownMenu(String MenuIdentificationSTratergy,String  MenuIdentificationLocator)
+	{
 		
+		WebElement InvokeMenuButton=ReturnFoundElement(MenuIdentificationSTratergy, MenuIdentificationLocator);
+		ClickElement(InvokeMenuButton);
 	}
 
 }

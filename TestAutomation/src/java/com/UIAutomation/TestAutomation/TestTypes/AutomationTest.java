@@ -10,6 +10,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.android.AndroidDriver;
+
 //public interface AutomationTest 
 public abstract class AutomationTest {
 
@@ -28,7 +30,7 @@ public abstract class AutomationTest {
 	public static RemoteWebDriver Driver;
 
 	public abstract void SetupTest(String Port, String UDID);
-	public abstract void SetupTest();
+	//public abstract void SetupTest();
 	public void ClickElement(WebElement E) {
 		E.click();
 
@@ -160,4 +162,38 @@ public abstract class AutomationTest {
 		} while (ElementTobeSearched.size() == 0);
 
 	}
+
+	public abstract void SelectItemFromMenu(String MenuIdentificationSTratergy,String  MenuIdentificationLocator, String MenuItem);
+
+
+	public WebElement ReturnFoundElement(String Stratergy, String Locator) {
+
+		switch (Stratergy) {
+
+		case "BY_ID":
+			return (Driver.findElement(By.id(Locator)));
+
+		case "BY_XPATH":
+			return (Driver.findElement(By.xpath(Locator)));
+		case "BY_ANDROIDUIAUTOMATOR":
+			String[] SplitedLocator = Locator.split("=");
+			String UiAutomatorLocator = "new UiSelector()." + SplitedLocator[0] + "(\"" + SplitedLocator[1] + "\");";
+			return (((AndroidDriver) Driver).findElementByAndroidUIAutomator(UiAutomatorLocator));
+
+		case "BY_CLASSNAME":
+			return (Driver.findElementByClassName(Locator));
+
+		case "BY_NAME":
+			return (Driver.findElementByName(Locator));
+		case "BY_TAGNAME":
+			return (Driver.findElementByTagName(Locator));
+
+		}
+
+		return null;
+	}
+
+	public abstract void InvokePulldownMenu(String MenuIdentificationSTratergy,String  MenuIdentificationLocator);
+
+
 }

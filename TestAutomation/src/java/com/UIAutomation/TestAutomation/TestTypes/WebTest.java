@@ -63,28 +63,55 @@ public  class WebTest extends AutomationTest {
 
 		// Initialise_Android_Locator_String_ToTokens_Dictionary();
 	}
-	public void SetupTest() {
+	public void SetupTest(String Platform,String BrowserName) 
+	{
 
 		Utilities.StartSeleniumServer();
-		File file = new File(Web_dict.get("ChromeDriverPath").toString());
-		System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-		
-		DesiredCapabilities Capability = DesiredCapabilities.chrome();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--load-extension="+Web_dict.get("ExtensionPath"));
-		options.addArguments("--disable-notifications");
-		
-		options.addArguments("--start-maximized");	
-		
-		Capability.setCapability(ChromeOptions.CAPABILITY, options);
-		
-			Driver=new ChromeDriver();
-		
+		StartBrowser(BrowserName);
 		Driver.get(Web_dict.get("ApplicationURL").toString());
 	}
 
-	public void StartApplication(String Browser) {
+	
+	//public void SetupTest(String Port, String UDID) {}
 
+	void StartBrowser(String BrowserName)
+	{
+		switch(BrowserName)
+		{
+		
+		
+			case "Chrome":
+				File file = new File(Web_dict.get("ChromeDriverPath").toString());
+				System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+				
+				DesiredCapabilities Capability = DesiredCapabilities.chrome();
+				ChromeOptions options = new ChromeOptions();
+				options.addArguments("--load-extension="+Web_dict.get("ExtensionPath"));
+				options.addArguments("--disable-notifications");
+				
+				options.addArguments("--start-maximized");	
+				
+				Capability.setCapability(ChromeOptions.CAPABILITY, options);
+				
+				Driver=new ChromeDriver();
+				break;
+		
+		}
+		
 	}
-	public void SetupTest(String Port, String UDID) {}
+
+
+	@Override
+	public void SelectItemFromMenu(String MenuIdentificationSTratergy, String MenuIdentificationLocator,
+			String MenuItem) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void InvokePulldownMenu(String MenuIdentificationSTratergy, String MenuIdentificationLocator) {
+		// TODO Auto-generated method stub
+		
+	}
 }

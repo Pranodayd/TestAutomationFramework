@@ -40,7 +40,7 @@ public class Utilities {
 		try {
 			// Give path of Config csv file in this file reader
 			br = new BufferedReader(
-					new FileReader("C:\\Framework\\Snehal\\AutomationFramework\\TestAutomation\\ConfigFiles\\Config.csv"));
+					new FileReader("C:\\Brainizen\\brainizen-ui-automation\\AutomationAPI\\Repositories\\Config.csv"));
 			String VariableName;
 			String VariableValue;
 			String[] parts = null;
@@ -199,6 +199,15 @@ public class Utilities {
 
 	private static void StopSeleniumServer() {
 		// TODO Auto-generated method stub
+
+	}
+	public static void WaitinMiliseconds(int Milliseconds) {
+		try {
+			Thread.sleep(Milliseconds);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
