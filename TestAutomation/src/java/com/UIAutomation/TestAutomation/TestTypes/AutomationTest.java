@@ -194,6 +194,9 @@ public abstract class AutomationTest {
 	}
 
 	public abstract void InvokePulldownMenu(String MenuIdentificationSTratergy,String  MenuIdentificationLocator);
+	public abstract void SelectDateofBirthDate(String DateIdentificationStratergy,String  DateIdentificationLocator,String Date);
+	public abstract void SelectMonthofBirthDate(String MonthIdentificationStratergy,String  MonthIdentificationLocator,String Month);
+	public abstract void SelectYearofBirthDate(String YearIdentificationStratergy,String  YearsIdentificationLocator,String Year);
 
 
 }
