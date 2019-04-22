@@ -127,11 +127,14 @@ public abstract class MobileNativeTest extends NativeTest {
 		Driver.navigate().back();
 
 	}
-	 public void SwipeElementTillElementFoundandClick(MobileElement ElementToBeSwiped,String ElementTobeFoundLocatorStratergy,String ElementTobeFoundLocator,WebElement ElementtobeClicked)
+	 public void SwipeElementTillElementFoundandClick(MobileElement ElementToBeSwiped,String ElementTobeFoundLocatorStratergy,String ElementTobeFoundLocator,WebElement ElementtobeClicked, Directions direction)
 	  {
 		
-	  if (IsElementFound(ElementTobeFoundLocatorStratergy, ElementTobeFoundLocator)==false) {
-		  SwipeUP(ElementToBeSwiped);
+	  if (IsElementFound(ElementTobeFoundLocatorStratergy, ElementTobeFoundLocator)==false) 
+	  {
+		  
+		SwipeElement(ElementToBeSwiped, direction);
+						 
 		  try 
 		  {
 			  
