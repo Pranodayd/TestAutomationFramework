@@ -2,6 +2,8 @@ package com.UIAutomation.TestAutomation.TestTypes;
 
 import java.time.Duration;
 
+import org.openqa.selenium.WebElement;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -125,5 +127,29 @@ public abstract class MobileNativeTest extends NativeTest {
 		Driver.navigate().back();
 
 	}
-
+	 public void SwipeElementTillElementFoundandClick(MobileElement ElementToBeSwiped,String ElementTobeFoundLocatorStratergy,String ElementTobeFoundLocator,WebElement ElementtobeClicked)
+	  {
+		
+	  if (IsElementFound(ElementTobeFoundLocatorStratergy, ElementTobeFoundLocator)==false) {
+		  SwipeUP(ElementToBeSwiped);
+		  try 
+		  {
+			  
+			  	Thread.sleep(3000);
+			  				  	
+		  } 
+		  catch (InterruptedException e) 
+		  {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		  }
+		
+	} else 
+	{
+		ClickElement(ElementtobeClicked);
+	}
+		 
+		  
+		  
+	  }
 }
