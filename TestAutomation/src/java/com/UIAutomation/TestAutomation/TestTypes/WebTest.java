@@ -116,8 +116,11 @@ public  class WebTest extends AutomationTest {
 	}
 
 
+	
+
+
 	@Override
-	public void SelectDateofBirthDate(String DateIdentificationStratergy, String DateIdentificationLocator,
+	public void SelectDatefromDatePicker(String DateIdentificationStratergy, String DateIdentificationLocator,
 			String Date) {
 		// TODO Auto-generated method stub
 		
@@ -125,7 +128,7 @@ public  class WebTest extends AutomationTest {
 
 
 	@Override
-	public void SelectMonthofBirthDate(String MonthIdentificationStratergy, String MonthIdentificationLocator,
+	public void SelectMonthfromDatePicker(String MonthIdentificationStratergy, String MonthIdentificationLocator,
 			String Month) {
 		// TODO Auto-generated method stub
 		
@@ -133,7 +136,7 @@ public  class WebTest extends AutomationTest {
 
 
 	@Override
-	public void SelectYearofBirthDate(String YearIdentificationStratergy, String YearsIdentificationLocator,
+	public void SelectYearfromDatePicker(String YearIdentificationStratergy, String YearsIdentificationLocator,
 			String Year) {
 		// TODO Auto-generated method stub
 		

@@ -14,7 +14,7 @@ public abstract class NativeTest extends AutomationTest {
 		Utilities.StartAppiumServerForAndroid(Port, UDID);
 	}
 	@Override
-	public void SelectDateofBirthDate(String BirthDateIdentificationSTratergy, String BirthDateIdentificationLocator, String Date) {
+	public void SelectDatefromDatePicker(String BirthDateIdentificationSTratergy, String BirthDateIdentificationLocator, String Date) {
 		
 		WebElement SelectDate=ReturnFoundElement(BirthDateIdentificationSTratergy, BirthDateIdentificationLocator);
 		ClearElement(SelectDate);
@@ -22,13 +22,13 @@ public abstract class NativeTest extends AutomationTest {
 		
 	}
 	 @Override
-		public  void SelectMonthofBirthDate(String MonthIdentificationSTratergy,String  MonthIdentificationLocator,String Month) {
+		public  void SelectMonthfromDatePicker(String MonthIdentificationSTratergy,String  MonthIdentificationLocator,String Month) {
 			WebElement SelectMonth=ReturnFoundElement(MonthIdentificationSTratergy, MonthIdentificationLocator);
 			ClearElement(SelectMonth);
 			EnterText(SelectMonth, Month);
 		}
 	 @Override
-		public  void SelectYearofBirthDate(String YearIdentificationSTratergy,String  YearIdentificationLocator,String Year)
+		public  void SelectYearfromDatePicker(String YearIdentificationSTratergy,String  YearIdentificationLocator,String Year)
 		{
 			WebElement SelectYear=ReturnFoundElement(YearIdentificationSTratergy, YearIdentificationLocator);
 			ClearElement(SelectYear);
