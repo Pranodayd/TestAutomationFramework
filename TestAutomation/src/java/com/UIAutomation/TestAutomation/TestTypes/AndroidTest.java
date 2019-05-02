@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import com.UIAutomation.TestAutomation.Utilities.Utilities;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
 
 public class AndroidTest extends MobileNativeTest {
 	String AndroidAppiumServerPort;
@@ -140,6 +141,10 @@ public class AndroidTest extends MobileNativeTest {
 		
 		WebElement InvokeMenuButton=ReturnFoundElement(MenuIdentificationSTratergy, MenuIdentificationLocator);
 		ClickElement(InvokeMenuButton);
+	}
+	public void PressBackButton() {
+		((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.BACK);
+
 	}
 
 }
