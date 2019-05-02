@@ -197,6 +197,6 @@ public abstract class AutomationTest {
 	public abstract void SelectDatefromDatePicker(String DateIdentificationStratergy,String  DateIdentificationLocator,String Date);
 	public abstract void SelectMonthfromDatePicker(String MonthIdentificationStratergy,String  MonthIdentificationLocator,String Month);
 	public abstract void SelectYearfromDatePicker(String YearIdentificationStratergy,String  YearsIdentificationLocator,String Year);
-
+	public abstract void ScrolltillElemntFound(WebElement Element);
 
 }

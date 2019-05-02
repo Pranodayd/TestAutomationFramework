@@ -1,5 +1,7 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
+import org.openqa.selenium.WebElement;
+
 public class WindowsTest extends DesktopNativeTest {
 
 	@Override
@@ -21,6 +23,10 @@ public class WindowsTest extends DesktopNativeTest {
 		
 	}
 
-	
+	@Override
+	public void ScrolltillElemntFound(WebElement Element) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

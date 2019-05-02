@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -140,5 +142,11 @@ public  class WebTest extends AutomationTest {
 			String Year) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public void ScrolltillElemntFound(WebElement Element) {
+		JavascriptExecutor je = (JavascriptExecutor) Driver;
+		je.executeScript("arguments[0].scrollIntoView(true);",Element);
+	
 	}
 }
