@@ -152,7 +152,7 @@ public  class WebTest extends AutomationTest {
 
 
 	@Override
-	public void ClickonSwitchButtonifOFF(WebElement Element) {
+	public void ONSwitchButtonifOFF(WebElement Element) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -147,7 +147,7 @@ public class AndroidTest extends MobileNativeTest {
 
 	}
 	@Override
-	public void ClickonSwitchButtonifOFF(WebElement Element) {
+	public void ONSwitchButtonifOFF(WebElement Element) {
 
 		if (GetWebElementText(Element).trim().equals("ON")==false) 
 		{
