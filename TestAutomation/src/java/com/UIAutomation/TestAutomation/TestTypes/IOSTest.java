@@ -1,5 +1,7 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
+import org.openqa.selenium.WebElement;
+
 public class IOSTest extends MobileNativeTest {
 
 	public void SetupTest(String Port, String UDID) {
@@ -21,6 +23,12 @@ public class IOSTest extends MobileNativeTest {
 
 	@Override
 	public void InvokePulldownMenu(String MenuIdentificationSTratergy, String MenuIdentificationLocator) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ClickonSwitchButtonifOFF(WebElement Element) {
 		// TODO Auto-generated method stub
 		
 	}

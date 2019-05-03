@@ -149,4 +149,11 @@ public  class WebTest extends AutomationTest {
 		je.executeScript("arguments[0].scrollIntoView(true);",Element);
 	
 	}
+
+
+	@Override
+	public void ClickonSwitchButtonifOFF(WebElement Element) {
+		// TODO Auto-generated method stub
+		
+	}
 }

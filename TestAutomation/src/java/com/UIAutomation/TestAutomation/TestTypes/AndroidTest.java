@@ -146,5 +146,16 @@ public class AndroidTest extends MobileNativeTest {
 		((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.BACK);
 
 	}
+	@Override
+	public void ClickonSwitchButtonifOFF(WebElement Element) {
 
+		if (GetWebElementText(Element).trim().equals("ON")==false) 
+		{
+			ClickElement(Element);
+		} else 
+		{
+			System.out.println("Element is already displayed");
+		}
+		
+	}
 }

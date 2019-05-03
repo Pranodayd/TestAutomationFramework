@@ -29,4 +29,10 @@ public class WindowsTest extends DesktopNativeTest {
 		
 	}
 
+	@Override
+	public void ClickonSwitchButtonifOFF(WebElement Element) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
