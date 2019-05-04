@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -144,16 +145,26 @@ public  class WebTest extends AutomationTest {
 		
 	}
 	@Override
-	public void ScrolltillElemntFound(WebElement Element) {
-		JavascriptExecutor je = (JavascriptExecutor) Driver;
-		je.executeScript("arguments[0].scrollIntoView(true);",Element);
+	public void OpencomboBoxSelectValue(List<WebElement> Element,String Valuetobeclicked) {
+		
+		int i=1;
+		for (WebElement ddlList : Element)
+		{
+			
+		  String Location=ddlList.getText();
+		   if (ddlList.getText().equals(Valuetobeclicked)) 
+		   {
+			ddlList.click();
+			break;
+			
+		   }
+		
+		}
 	
 	}
 
 
-	@Override
-	public void ONSwitchButtonifOFF(WebElement Element) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	
+
 }

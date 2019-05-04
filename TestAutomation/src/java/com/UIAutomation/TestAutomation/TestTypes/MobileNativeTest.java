@@ -155,9 +155,5 @@ public abstract class MobileNativeTest extends NativeTest {
 		  
 		  
 	  }
-	 @Override
-	public void ScrolltillElemntFound(WebElement Element) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

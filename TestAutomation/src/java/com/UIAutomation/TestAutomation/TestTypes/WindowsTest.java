@@ -1,5 +1,7 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 
 public class WindowsTest extends DesktopNativeTest {
@@ -24,15 +26,13 @@ public class WindowsTest extends DesktopNativeTest {
 	}
 
 	@Override
-	public void ScrolltillElemntFound(WebElement Element) {
+	public void OpencomboBoxSelectValue(List<WebElement> Element, String Valuetobeclicked) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void ONSwitchButtonifOFF(WebElement Element) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+
+
 
 }

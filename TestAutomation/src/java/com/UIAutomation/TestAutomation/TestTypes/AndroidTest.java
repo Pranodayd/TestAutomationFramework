@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -146,16 +147,13 @@ public class AndroidTest extends MobileNativeTest {
 		((AndroidDriver) Driver).pressKeyCode(AndroidKeyCode.BACK);
 
 	}
-	@Override
-	public void ONSwitchButtonifOFF(WebElement Element) {
 
-		if (GetWebElementText(Element).trim().equals("ON")==false) 
-		{
-			ClickElement(Element);
-		} else 
-		{
-			System.out.println("Element is already displayed");
-		}
+	@Override
+	public void OpencomboBoxSelectValue(List<WebElement> Element, String Valuetobeclicked) {
+		// TODO Auto-generated method stub
 		
 	}
+	
+
+	
 }

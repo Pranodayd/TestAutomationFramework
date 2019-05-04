@@ -1,5 +1,7 @@
 package com.UIAutomation.TestAutomation.TestTypes;
 
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 
 public class IOSTest extends MobileNativeTest {
@@ -28,11 +30,14 @@ public class IOSTest extends MobileNativeTest {
 	}
 
 	@Override
-	public void ONSwitchButtonifOFF(WebElement Element) {
+	public void OpencomboBoxSelectValue(List<WebElement> Element, String Valuetobeclicked) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	
+
+	
 	
 
 }
