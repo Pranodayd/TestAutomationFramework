@@ -126,50 +126,5 @@ public abstract class NativePage extends Page {
 		return null;
 	}
 
-	public static Dictionary<String, String> Text_Repo = new Hashtable<String, String>();
-
-	static {
-		String csvFile = "";
-		BufferedReader br;
-		try {
-			br = new BufferedReader(new FileReader(Utilities.dict.get("TextRepoPath").toString()));
-			String VariableName;
-			String VariableValue;
-			String[] parts = null;
-			String line;
-
-			line = br.readLine();
-			while (line != null) {
-				// System.out.println(line);
-				parts = line.split("-");
-				VariableName = parts[0]; // 004
-				try {
-					VariableValue = parts[1]; // 034556
-
-					Text_Repo.put(VariableName, VariableValue);
-					line = br.readLine();
-					System.out.println("value of " + VariableName + " is " + Text_Repo.get(VariableName).toString());
-				} catch (ArrayIndexOutOfBoundsException ArrExc) {
-					VariableValue = ""; // 034556
-					VariableName = parts[0];
-					Text_Repo.put(VariableName, VariableValue);
-					System.out.println("value of " + VariableName + " is " + Text_Repo.get(VariableName).toString());
-					try {
-						line = br.readLine();
-					} catch (IOException IOE) {
-						System.out.println("Thrown IOException while reading file :" + IOE.getMessage());
-					}
-					// System.out.println("Value is blank");
-				}
-			}
-
-		} catch (FileNotFoundException ex) {
-			System.out.println("Csv file is not found : " + ex.getMessage());
-		} catch (IOException IOexce) {
-			System.out.println("IO Exception occured : " + IOexce.getMessage());
-		}
-
-		// Initialise_Android_Locator_String_ToTokens_Dictionary();
-	}
-
+	
 }
