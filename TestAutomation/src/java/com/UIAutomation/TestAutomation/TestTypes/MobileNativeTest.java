@@ -75,10 +75,8 @@ public abstract class MobileNativeTest extends NativeTest {
 
 		int Y = GetCoordinates(Element, Coordinates.Y);
 		int StartPointY = Y + MidHeight;
-
-		Act.press(PointOption.point(StartPointX, StartPointY))
-				.waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-				.moveTo(PointOption.point(StartPointX, Height)).release().perform();
+		Act.press(PointOption.point(StartPointX, Height)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500))).moveTo(PointOption.point(StartPointX, MidHeight)).release().perform();
+		
 	}
 
 	private void SwipeLeft(MobileElement Element) {
